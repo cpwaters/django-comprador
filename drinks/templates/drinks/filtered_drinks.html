@@ -1,0 +1,18 @@
+{% extends 'drinks/drinks.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'drinks:drinks' %}">Drinks</a>
+{% endblock %}
+
+{% block filtered %}
+    <h1>Drinks</h1>
+    <div class="drinks">
+        {% for selected in selecteds %}
+        <a href="{% url 'drinks:ddetail' slug=drinks.slug %}"><div class="drink">
+            <h2>{{selected.title}}</h2>
+            <img src="{{selected.thumb.url}}">
+            <p>{{selected.snippet}}</p>
+        {% endfor %}
+        </div></a>
+    </div>
+{% endblock %}

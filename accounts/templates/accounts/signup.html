@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'accounts:signup' %}">Sign Up</a>
+{% endblock %}
+
+{% block content %}
+ <h1>Sign up</h1>
+ <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
+    {% csrf_token %}
+     {{form}}
+     <input type="submit" value="Sign up">
+ </form>
+{% endblock %}

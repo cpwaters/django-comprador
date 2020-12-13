@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'foods:foods' %}">Foods</a>
+{% endblock %}
+
+{% block content %}
+    <h1>Foods</h1>
+    <div class="foods">
+        {% for food in foods %}
+        <a class="fsur" href="{% url 'foods:fdetail' slug=food.slug %}"><div class="food">
+            <h2>{{food.title}}</h2>
+            <img src="{{food.thumb.url}}">
+            <p>{{food.snippet}}</p>
+        </div></a>
+        {% endfor %}
+    </div>
+{% endblock %}

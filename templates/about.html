@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'about' %}">About</a>
+{% endblock %}
+
+{% block content %}
+    <h1>About Us</h1>
+    <p>About us | Comprador | Online villa shopping and delivery service</p>
+    <p>Blah Blah Blah</p>
+{% endblock %}

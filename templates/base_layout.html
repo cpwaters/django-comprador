@@ -1,0 +1,59 @@
+{% load static from staticfiles %} <!-- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static '/styles.css/' %}">
+    <title>Comprador | Online shopping direct to you villa, apartment or townhouse</title>
+</head>
+<body>
+    <header class="wrapper">
+        <a href="{% url 'home' %}"><img src="{% static 'comp-banner-3.jpg' %}"></a>
+        <h1><a href="{% url 'home' %}"></a></h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'foods:foods' %}">Foods</a></li>
+                <li><a href="{% url 'drinks:drinks' %}">Drinks</a></li>
+                <li><a href="{% url 'nfi:nfi' %}">Non-food Items</a></li>
+            </ul>
+            <ul class="secondul">
+                <li>
+                    <form class="logout-link" action="{% url 'accounts:logout' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+                <li><a href="{% url 'foods:foods' %}" class="highlight">Place Order</a></li>
+            </ul>
+                {% else %}
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'foods:foods' %}">Foods</a></li>
+                <li><a href="{% url 'drinks:drinks' %}">Drinks</a></li>
+                <li><a href="{% url 'nfi:nfi' %}">Non-food Items</a></li>
+            </ul>
+            <ul class="secondul">
+                <li><a href="{% url 'accounts:login' %}">Log In</a></li>
+                <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+            </ul>
+                {% endif %}
+                <div style="clear:both"></div>
+            </ul>
+        </nav>
+        <div class="breadcrumb"><em>You are here: {% block breadcrumbs %}<a href="{% url 'home' %}"><li>Home</li></a>{% endblock %}</em></div> <!- this is the super -> 
+        </header>
+        <div class="wrapper">
+        {% block filtered %}
+        {% endblock %}     
+                
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

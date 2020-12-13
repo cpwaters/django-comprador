@@ -1,0 +1,16 @@
+{% extends 'foods/food.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » {{food_detail.title}}
+{% endblock %}
+
+{% block content %}
+    <h1>Product details</h1>
+    <div class="product-detail">
+        <div class="product">
+            <h2>{{food_detail.title}}</h2>
+            <img src="{{food_detail.thumb.url}}">
+            <p>{{food_detail.body}}</p>
+        </div>
+    </div>
+{% endblock %}

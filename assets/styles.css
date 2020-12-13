@@ -1,0 +1,86 @@
+body {
+    background: #fff;
+    font-family: sans-serif;
+}
+
+header img {
+    max-width: 100%;
+    border: 1px solid #c7c7c7;
+    padding: 2px;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+nav {
+    display: inline-block;
+    max-width: 100%;
+    width: 100%;
+    border-bottom: 1px solid #c7c7c7;
+    margin-top:-10px;
+}
+
+nav ul {
+    margin-left:-40px;
+}
+
+a, nav ul li a {
+    list-style-type: none;
+    text-decoration: none;
+    color: #000;
+}
+
+nav ul a, button {
+    padding:10px;
+    border: 1px solid #c7c7c7;
+    color: #000;
+    border-radius: 3px;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+}
+
+nav ul a:hover, button:hover {
+    color:#fff;
+    background: #c7c7c7;
+    font-weight: bold;
+}
+
+button {
+    background:none;
+    cursor: pointer;
+    font-size:16px;
+    margin:-20px 5px 0 0;
+}
+
+nav ul li {
+    display:block;
+    float:left;
+    
+}
+
+h2 {font-size:16px;}
+
+.foods, .drinks, .none_food {width:100%;display:inline-flex;flex-wrap:wrap;text-align: center;}
+.food, .drink, .none {border:1px solid #c7c7c7;border-radius:3px;margin:10px;padding:10px;max-width:220px;min-width:165px;height:260px;}
+.product {border:1px solid #c7c7c7;border-radius:3px;margin:10px;padding:10px;}
+.food img, .drink img, .none img, .product img {max-width:170px;max-height:120px;}
+.food:hover, .drink:hover, .none:hover {box-shadow: #c7c7c7 0px 1px 2px 2px;}
+
+a.fsur {
+    max-width:100%;
+    width:240px;
+}
+
+.breadcrumb {display: inline-block;color:#ff0000;}
+.breadcrumb a {display:inline-block;color:#ff0000;}
+
+.secondul {
+    float:right;
+    margin-top:0;
+}
+
+select {
+    width:100px;
+}

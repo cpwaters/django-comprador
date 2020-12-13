@@ -1,0 +1,34 @@
+{% extends 'base_layout.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'drinks:drinks' %}">Drinks</a>
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'drinks:drinks' %}" method="GET">
+    <select name="selector">
+            <option value="Category...">Category...</option>
+        {% for dc in drinks %}
+            <option value="{{dc.drink_choice}}">{{dc.drink_choice}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Filter</button>
+    
+    {% for selected in selecteds %}
+    <div>{{selected.title}}</div>
+    {% endfor %}
+</form>
+
+    <h1>Drinks</h1>
+    <div class="drinks">
+        {% for drink in drinks %}
+        <a href="{% url 'drinks:ddetail' slug=drink.slug %}"><div class="drink">
+            <h2>{{drink.title}}</h2>
+            <img src="{{drink.thumb.url}}">
+            <p>{{drink.snippet}}</p>
+        </div></a>
+        {% endfor %}
+    </div>
+
+    
+{% endblock %}

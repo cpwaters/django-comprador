@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'nfi:nfi' %}">None food items</a>
+{% endblock %}
+
+{% block content %}
+    <h1>Non-food items</h1>
+    <div class="none_food">
+        {% for none_food in nfi %}
+        <a href="{% url 'nfi:ndetail' slug=none_food.slug %}"><div class="none">
+            <h2>{{none_food.title}}</h2>
+            <img src="{{none_food.thumb.url}}">
+            <p>{{none_food.snippet}}</p>
+        </div></a>
+        {% endfor %}
+    </div>
+{% endblock %}
